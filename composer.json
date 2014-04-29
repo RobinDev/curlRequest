@@ -1,5 +1,13 @@
 {
     "name": "ropendev/curl",
+    "description": "PHP POO cURL wrapper (PSR compatible for autoloading) : light and simple.",
+    "keywords": ["cURL", "HTTP", "Multi-thread", "Parallel", "Spider", "Bot", "Request", "Crawler"],
+    "homepage": "https://github.com/RobinDev/curlRequest",
+    "license": "WTFPL",
+    "require": {
+        "php": ">=5.3.0",
+        "ext-curl": "*"
+     },
     "autoload": {
         "psr-0": {
             "rOpenDev\\curl\\CurlRequest": ""
