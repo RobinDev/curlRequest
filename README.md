@@ -76,7 +76,7 @@ string $r->execute(); // Return contents from the url
 
 array  $r->getHeader(); // Return Response Header
 
-string $r->getCookies('str');
+string $r->getCookies();
 
 $r->hasError|getError|getInfo(); // Equivalent to curl function curl_errno|curl_error|curl_getinfo();
 
