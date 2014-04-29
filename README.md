@@ -14,9 +14,12 @@ Simple cURL class wich transform procedural default cURL options in object. This
 ```json
 {
     "require": {
-        "rOpenDev/curl": "*"
+        "ropendev/curl": "dev-master"
     }
 }
+```
+```
+composer update
 ```
 
 ##Examples
@@ -54,7 +57,7 @@ $r
 	// Preselect Options to avoid eternity wait
         ->setDefaultGetOptions($connectTimeOut = 5, $timeOut = 10, $dnsCacheTimeOut = 600, $followLocation = true, $maxRedirs = 5)
         ->setDefaultSpeedOptions()
-  
+
     ->setReturnHeader() // If you want to get the header with getHeader()
     ->setCookie(string $cookie)
     ->setReferer(string $url)
@@ -73,7 +76,7 @@ string $r->execute(); // Return contents from the url
 
 array  $r->getHeader(); // Return Response Header
 
-string $r->getCookies('str'); 
+string $r->getCookies('str');
 
 $r->hasError|getError|getInfo(); // Equivalent to curl function curl_errno|curl_error|curl_getinfo();
 
