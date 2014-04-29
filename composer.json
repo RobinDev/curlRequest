@@ -2,7 +2,7 @@
     "name": "ropendev/curl",
     "autoload": {
         "psr-0": {
-            "rOpenDev\curl\CurlRequest": ""
+            "rOpenDev\\curl\\CurlRequest": ""
         }
     }
 }
