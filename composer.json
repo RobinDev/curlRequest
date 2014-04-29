@@ -1,0 +1,8 @@
+{
+    "name": "rOpenDev/curl",
+    "autoload": {
+        "psr-0": {
+            "CurlRequest": "",
+        }
+    }
+}
