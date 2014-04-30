@@ -2,6 +2,7 @@
 * [Introduction](#introduction)
     * [Description](#description)
 * [Installation](#installation)
+    * [Packagist](https://packagist.org/packages/ropendev/curl)
 * [Examples](#examples)
 
 ##Introduction
