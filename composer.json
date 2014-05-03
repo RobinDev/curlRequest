@@ -9,13 +9,13 @@
         "ext-curl": "*"
      },
     "autoload": {
-        "psr-0": {
-            "rOpenDev\\curl\\CurlRequest": ""
+        "psr-4": {
+            "rOpenDev\\curl\\": ""
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.0"
+            "dev-master": "1.0-dev"
         }
     }
 }
