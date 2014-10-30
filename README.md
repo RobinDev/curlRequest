@@ -23,7 +23,11 @@ All the functions are documented in the class file.
 [Composer](http://getcomposer.org) is recommended for installation.
 In one command line :
 ```
+<<<<<<< HEAD
 composer require --dev ropendev/curl dev-master
+=======
+composer require --dev phpdocumentor/phpdocumentor dev-master
+>>>>>>> origin/master
 ```
 Or via editting your `composer.json`
 ```json
