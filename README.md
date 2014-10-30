@@ -1,4 +1,11 @@
-#Table of contents
+# Make it easy to request a URL (or few) with PHP cURL
+PHP POO cURL wrapper :
+* PSR compatible for autoloading,
+* Easy install with composer,
+* Intuitive and documented
+* Light (~8 ko)
+
+##Table of contents
 * [Introduction](#introduction)
     * [Description](#description)
 * [Installation](#installation)
@@ -7,11 +14,18 @@
 
 ##Introduction
 ###Description
-Simple cURL class wich transform procedural default cURL options in object. This class is giving some shortcuts like getCookie, setMobileUserAgent, setReferrer... but you are not force to use them.
+Simple cURL class wich transform procedural default cURL options in object. This class is giving some shortcuts like getCookie, setMobileUserAgent, setReferrer... for a more intuitive usage. And you can set cURL's options the old way with CurlRequest::setOpt($option, $value).
+
+All the functions are documented in the class file.
 
 ##Installation
 
 [Composer](http://getcomposer.org) is recommended for installation.
+In one command line :
+```
+composer require --dev ropendev/curl dev-master
+```
+Or via editting your `composer.json`
 ```json
 {
     "require": {
@@ -52,6 +66,8 @@ echo $r2->setDefaultGetOptions()->setReturnHeader()->setDestkopUserAgent()->setE
 ### All the options
 ```php
 <?php
+use rOpenDev\curl\CurlRequest;
+
 $r = new CurlRequest('scheme://host/path');
 $r
     ->setOpt(CURLOPT_*, mixed 'value')
@@ -71,7 +87,11 @@ $r
 
     ->setEncodingGzip()
 
-    ->setProxy(string 'httpproxyhost:port:username:passwrd');
+    ->setProxy(string 'httpproxyhost:port:username:passwrd')
+
+    ->setReturnHeaderOnly()
+
+    ->setUrl($url, $resetPreviousOptions)
 
 string $r->execute(); // Return contents from the url
 

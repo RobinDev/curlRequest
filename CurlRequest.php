@@ -3,6 +3,7 @@
 
 /**
  * PHP POO cURL wrapper (PSR compatible for autoloading).
+ * Make it easy to request a URL (or few)
  *
  *
  * PHP version 5
@@ -17,7 +18,7 @@ namespace rOpenDev\curl;
 class CurlRequest {
 
 	/**
-	 * If set to true (via setReturnHeaderOnly), headers only are returned (via execute)
+	 * If set to true (via self::setReturnHeaderOnly()), headers only are returned (via self::execute())
 	 * @var bool
 	 */
 	protected $headerOnly = false;
