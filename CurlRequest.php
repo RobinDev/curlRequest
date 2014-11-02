@@ -6,13 +6,10 @@ namespace rOpenDev\curl;
  * Make it easy to request a URL (or few)
  * PSR-2 Coding Style, PSR-4 Autoloading
  *
- * PHP version 5
- *
- * @author     Robin <contact@robin-d.fr>
+ * @author     Robin <contact@robin-d.fr> http://www.robin-d.fr/
  * @link       https://github.com/RobinDev/curlRequest
  * @since      File available since Release 2014.04.29
  */
-
 class CurlRequest
 {
 
@@ -22,7 +19,7 @@ class CurlRequest
     protected $headerOnly = false;
 
     /**
-     * @var Ressource $ch containing cURL Session
+     * @var resource $ch containing cURL Session
      */
     public static $ch;
 
@@ -34,8 +31,9 @@ class CurlRequest
     /**
      * @var bool $rHeader If set to true (via self::setReturnHeader()), self::execute() will extract HTTP header
      *                    from the cURL output and stock it in self::$header wich can be get with self::getHeader()
+     * @var array $header Will contain a(fter self::execute()) return Header by curl request
      */
-    protected $rHeader=false;
+    protected $rHeader=false, $header;
 
     /**
      * Constructor
@@ -45,7 +43,7 @@ class CurlRequest
      */
     public function __construct($url, $usePreviousSession=false)
     {
-        if($usePreviousSession === false || !isset(self::$ch)) {
+        if ($usePreviousSession === false || !isset(self::$ch)) {
             self::$ch = curl_init($url);
         }
         else {
@@ -65,7 +63,7 @@ class CurlRequest
      */
     public function setUrl($url, $reset = false)
     {
-        if($resest) {
+        if ($reset) {
             curl_reset(self::$ch);
         }
         $this->setOpt(CURLOPT_URL, $url);
@@ -75,7 +73,7 @@ class CurlRequest
     /**
      * Add a cURL's option
      *
-     * @param $option const cURL Predefined Constant
+     * @param int $option const cURL Predefined Constant
      * @param $value mixed
      *
      * @return self
@@ -254,11 +252,11 @@ class CurlRequest
      */
     public function setProxy($proxy)
     {
-        if(!empty($proxy)) {
+        if (!empty($proxy)) {
             $proxy = explode(':', $proxy);
             $this->setOpt(CURLOPT_HTTPPROXYTUNNEL, 1);
             $this->setOpt(CURLOPT_PROXY, $proxy[0].':'.$proxy[1]);
-            if(isset($proxy[2])) {
+            if (isset($proxy[2])) {
                 $this->setOpt(CURLOPT_PROXYUSERPWD, $proxy[2].':'.$proxy[3]);
             }
         }
@@ -272,13 +270,16 @@ class CurlRequest
      */
     public function execute()
     {
-        if($this->headerOnly) {
+        if ($this->headerOnly) {
             return $this->header = curl_exec(self::$ch);
         }
         $html = curl_exec(self::$ch);
-        //if($this->gzip) $html = gzdecode ($html);
 
-        if($this->rHeader) {
+        if ($this->gzip && self::gzdecode($this->output)) {
+            $html = self::gzdecode($html);
+        }
+
+        if ($this->rHeader) {
             $this->header = substr($html, 0, $sHeader=curl_getinfo(self::$ch, CURLINFO_HEADER_SIZE));
             $html = substr($html, $sHeader);
         }
@@ -292,22 +293,20 @@ class CurlRequest
      */
     public function getHeader()
     {
-        if(isset($this->header))
+        if (isset($this->header))
             return self::http_parse_headers($this->header);
     }
 
     /**
      * Return the cookie(s) returned by the request (if there are)
      *
-     * @param string $format str for function returns a string else an array
-     *
      * @return null|array containing the cookies
      */
     public function getCookies()
     {
-        if(isset($this->header)) {
+        if (isset($this->header)) {
             $header = $this->getHeader();
-            if(isset($header['Set-Cookie'])) {
+            if (isset($header['Set-Cookie'])) {
                 return is_array($header['Set-Cookie']) ? implode('; ', $header['Set-Cookie']) : $header['Set-Cookie'];
             }
         }
@@ -389,5 +388,15 @@ class CurlRequest
         }
 
         return $headers;
+    }
+
+    /**
+     * Decode a string
+     *
+     * @param $str string to decode
+     */
+    public static function gzdecode($str)
+    {
+        return gzinflate(substr($str,10,-8));
     }
 }
