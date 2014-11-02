@@ -31,7 +31,7 @@ class CurlRequest
     /**
      * @var bool $rHeader If set to true (via self::setReturnHeader()), self::execute() will extract HTTP header
      *                    from the cURL output and stock it in self::$header wich can be get with self::getHeader()
-     * @var array $header Will contain a(fter self::execute()) return Header by curl request
+     * @var string $header Will contain a(fter self::execute()) return Header by curl request
      */
     protected $rHeader=false, $header;
 
@@ -275,7 +275,7 @@ class CurlRequest
         }
         $html = curl_exec(self::$ch);
 
-        if ($this->gzip && self::gzdecode($this->output)) {
+        if ($this->gzip && self::gzdecode($html)) {
             $html = self::gzdecode($html);
         }
 
