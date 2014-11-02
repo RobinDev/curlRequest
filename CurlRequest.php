@@ -20,8 +20,8 @@ class CurlRequest
     protected $headerOnly = false;
 
     /**
-     * Containing curl session
-     * @var \resource
+     * Curl resource handle
+     * @var resource
      */
     public static $ch;
 
@@ -47,8 +47,8 @@ class CurlRequest
     /**
      * Constructor
      *
-     * @param $url string The URL to request
-     * @param $usePreviousSession bool If the query must use the previous session (so using same connexion if it's the same host)
+     * @param string $url The URL to request
+     * @param bool   $usePreviousSession If the query must use the previous session (so using same connexion if it's the same host)
      */
     public function __construct($url, $usePreviousSession=false)
     {
@@ -65,8 +65,8 @@ class CurlRequest
     /**
      * Change the URL to cURL
      *
-     * @param $url string URL to cURL
-     * @param $reset bool True if you want to remove cURLs params setted before calling this function
+     * @param string $url   URL to cURL
+     * @param bool   $reset True if you want to remove cURLs params setted before calling this function
      *
      * @return self
      */
@@ -82,8 +82,8 @@ class CurlRequest
     /**
      * Add a cURL's option
      *
-     * @param int $option const cURL Predefined Constant
-     * @param $value mixed
+     * @param int   $option cURL Predefined Constant
+     * @param mixed $value
      *
      * @return self
      */
@@ -227,7 +227,7 @@ class CurlRequest
     /**
      * A short way to set post's options to cURL a web page
      *
-     * @param $post_array array containing data (key=>vvalue) to post
+     * @param array $post_array Contain data (key=>vvalue) to post
      *
      * @return self
      */
@@ -255,7 +255,7 @@ class CurlRequest
     /**
      * If you want to request the URL with a http proxy (public or private)
      *
-     * @param $proxy string IP:PORT[:LOGIN:PASSWORD]
+     * @param string $proxy IP:PORT[:LOGIN:PASSWORD]
      *
      * @return self
      */
@@ -360,7 +360,7 @@ class CurlRequest
      * Parse HTTP headers (php HTTP functions but generally, this packet isn't installed)
      * @source http://www.php.net/manual/en/function.http-parse-headers.php#112917
      *
-     * @param $raw_headers string containing HTTP headers
+     * @param string $raw_headers Contain HTTP headers
      *
      * @return bool|array an array on success or FALSE on failure.
      */
@@ -402,7 +402,7 @@ class CurlRequest
     /**
      * Decode a string
      *
-     * @param $str string to decode
+     * @param string $str String to decode
      */
     public static function gzdecode($str)
     {
