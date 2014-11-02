@@ -1,7 +1,5 @@
 # Make it easy to request a URL (or few) with PHP cURL
 
-[![Latest Version](https://img.shields.io/github/release/RobinDev/curlRequest.svg?style=flat-square)](https://github.com/RobinDev/curlRequest/releases)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/RobinDev/curlRequest.svg?style=flat-square)](https://scrutinizer-ci.com/g/RobinDev/curlRequest/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/RobinDev/curlRequest.svg?style=flat-square)](https://scrutinizer-ci.com/g/RobinDev/curlRequest)
 
 PHP POO cURL wrapper :
