@@ -14,26 +14,35 @@ class CurlRequest
 {
 
     /**
-     * @var bool $headerOnly If set to true (via self::setReturnHeaderOnly()), headers only are returned (via self::execute())
+     * If set to true (via self::setReturnHeaderOnly()), headers only are returned (via self::execute())
+     * @var bool
      */
     protected $headerOnly = false;
 
     /**
-     * @var resource $ch containing cURL Session
+     * Containing curl session
+     * @var \resource
      */
     public static $ch;
 
     /*
-     * @var bool $gzip If set to true (via self::setEncodingGzip($gzip)), self::execute() will try to uncompress cURL output
+     * If set to true (via self::setEncodingGzip($gzip)), self::execute() will try to uncompress cURL output
+     * @var bool
      */
     protected $gzip=false;
 
     /**
-     * @var bool $rHeader If set to true (via self::setReturnHeader()), self::execute() will extract HTTP header
-     *                    from the cURL output and stock it in self::$header wich can be get with self::getHeader()
-     * @var string $header Will contain a(fter self::execute()) return Header by curl request
+     * If set to true (via self::setReturnHeader()), self::execute() will extract HTTP header
+     * from the cURL output and stock it in self::$header wich can be get with self::getHeader()
+     * @var bool
      */
-    protected $rHeader=false, $header;
+    protected $rHeader=false;
+
+    /**
+     * Contain (after self::execute()) header returned by curl request
+     * @var string $header
+     */
+    protected $header;
 
     /**
      * Constructor
