@@ -351,9 +351,13 @@ class CurlRequest
         return curl_getinfo(self::$ch);
     }
 
-    public function __destruct()
+    /**
+     * Close the connexion
+     * Call curl_reset function
+     */
+    public function close()
     {
-        //curl_close(self::$ch);
+        curl_reset(self::$ch);
     }
 
     /**
