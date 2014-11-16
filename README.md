@@ -14,6 +14,8 @@ PHP POO cURL wrapper :
 * [Installation](#installation)
     * [Packagist](https://packagist.org/packages/ropendev/curl)
 * [Examples](#examples)
+* [Licence](#licence)
+* [Contributors](#contributors)
 
 ##Introduction
 ###Description
@@ -106,6 +108,11 @@ $r->hasError|getError|getInfo(); // Equivalent to curl function curl_errno|curl_
 
 ```
 
-Enjoy :)
+##Licence
 
 Licence : WTFPL (see LICENCE file)
+
+#Contributors
+
+* Original author : [Robin (SEO Consultant in Marseille)](http://www.robin-d.fr/).
+* ...
