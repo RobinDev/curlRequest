@@ -112,7 +112,7 @@ $r->hasError|getError|getInfo(); // Equivalent to curl function curl_errno|curl_
 
 Licence : WTFPL (see LICENCE file)
 
-#Contributors
+##Contributors
 
 * Original author : [Robin (SEO Consultant in Marseille)](http://www.robin-d.fr/).
 * ...
