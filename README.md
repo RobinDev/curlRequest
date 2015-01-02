@@ -2,6 +2,7 @@
 
 [![Quality Score](https://img.shields.io/scrutinizer/g/RobinDev/curlRequest.svg?style=flat-square)](https://scrutinizer-ci.com/g/RobinDev/curlRequest)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/388f6562-32ae-454d-97ce-4d1bed306ee3/mini.png)](https://insight.sensiolabs.com/projects/388f6562-32ae-454d-97ce-4d1bed306ee3)
+[![Build Status](https://travis-ci.org/RobinDev/curlRequest.svg)](https://travis-ci.org/RobinDev/curlRequest)
 
 PHP POO cURL wrapper :
 * PSR compliant (2 Coding Style, 4 Autoloading),
