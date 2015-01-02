@@ -98,13 +98,13 @@ $r
 
     ->setEncodingGzip()
 
-    ->setProxy(string 'httpproxyhost:port:username:passwrd')
+    ->setProxy(string '[scheme]proxy-host:port[:username:passwrd]') // Scheme, username and passwrd are facultatives. Default Scheme is http://
 
     ->setReturnHeaderOnly()
 
     ->setUrl($url, $resetPreviousOptions)
 
-string $r->execute(); // Return contents from the url
+string $r->execute();   // Return contents from the url
 
 array  $r->getHeader(); // Return Response Header
 

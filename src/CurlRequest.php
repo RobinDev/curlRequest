@@ -265,24 +265,44 @@ class CurlRequest
     }
 
     /**
-     * If you want to request the URL with a http proxy (public or private)
+     * If you want to request the URL with a (http|socks...) proxy (public or private)
      *
-     * @param string $proxy IP:PORT[:LOGIN:PASSWORD]
+     * @param string $proxy [scheme]IP:PORT[:LOGIN:PASSWORD] (Eg. : socks5://98.023.023.02:1098:cUrlRequestProxId:SecretPassword)
      *
      * @return self
      */
     public function setProxy($proxy)
     {
         if (!empty($proxy)) {
+            $scheme = self::getSchemeFrom($proxy);
             $proxy = explode(':', $proxy);
             $this->setOpt(CURLOPT_HTTPPROXYTUNNEL, 1);
-            $this->setOpt(CURLOPT_PROXY, $proxy[0].':'.$proxy[1]);
+            $this->setOpt(CURLOPT_PROXY, $scheme.$proxy[0].':'.$proxy[1]);
             if (isset($proxy[2])) {
                 $this->setOpt(CURLOPT_PROXYUSERPWD, $proxy[2].':'.$proxy[3]);
             }
         }
 
         return $this;
+    }
+
+    /**
+     * Return scheme from proxy string and remove Scheme From proxy
+     *
+     * @param string $proxy
+     *
+     * @return string
+     */
+    protected static function getSchemeFrom(&$proxy)
+    {
+        if (!preg_match('@^([a-z0-9]*)://@', $proxy, $match)) {
+            return 'http://';
+        }
+
+        $scheme = $match[1].'://';
+        $proxy = str_replace($scheme, '', $proxy);
+
+        return $scheme;
     }
 
     /**
