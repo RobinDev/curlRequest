@@ -10,15 +10,15 @@ PHP POO cURL wrapper :
 
 ##Table of contents
 * [Introduction](#introduction)
-    * [Description](#description)
 * [Installation](#installation)
     * [Packagist](https://packagist.org/packages/ropendev/curl)
-* [Examples](#examples)
-* [Licence](#licence)
+* [Usage](#usage)
+* [Documentation](#documentation)
+* [Lisense](#lisense)
 * [Contributors](#contributors)
 
 ##Introduction
-###Description
+
 Simple cURL class wich transform procedural default cURL options in object. This class is giving some shortcuts like getCookie, setMobileUserAgent, setReferrer... for a more intuitive usage. And you can set cURL's options the old way with CurlRequest::setOpt($option, $value).
 
 All the functions are documented in the class file.
@@ -26,10 +26,12 @@ All the functions are documented in the class file.
 ##Installation
 
 [Composer](http://getcomposer.org) is recommended for installation.
+
 In one command line :
+```bash
+composer require ropendev/curl
 ```
-composer require --dev ropendev/curl dev-master
-```
+
 Or via editting your `composer.json`
 ```json
 {
@@ -38,11 +40,11 @@ Or via editting your `composer.json`
     }
 }
 ```
-```
+```bash
 composer update
 ```
 
-##Examples
+##Usage
 
 ###Single request
 ```php
@@ -57,7 +59,7 @@ echo $output;
 ```
 The above example will output the contet from example.org.
 
-###Single request with proxie, post and cookie
+###Single request with proxy, post and cookie
 ```php
 <?php
 use \rOpenDev\curl\CurlRequest;
@@ -68,7 +70,10 @@ $request->setDefaultGetOptions()->setReturnHeader()->setDestkopUserAgent()->setE
 $r2 = new CurlRequest('http://www.bing.com/search?q=curl+request+php');
 echo $r2->setDefaultGetOptions()->setReturnHeader()->setDestkopUserAgent()->setEncodingGzip()->setCookie($request->getCookie())->setProxy('domain:port:user:password')->execute();
 ```
-### All the options
+##Documentation
+
+Are listed every public method.
+
 ```php
 <?php
 use rOpenDev\curl\CurlRequest;
@@ -76,9 +81,10 @@ use rOpenDev\curl\CurlRequest;
 $r = new CurlRequest('scheme://host/path');
 $r
     ->setOpt(CURLOPT_*, mixed 'value')
+
 	// Preselect Options to avoid eternity wait
-        ->setDefaultGetOptions($connectTimeOut = 5, $timeOut = 10, $dnsCacheTimeOut = 600, $followLocation = true, $maxRedirs = 5)
-        ->setDefaultSpeedOptions()
+    ->setDefaultGetOptions($connectTimeOut = 5, $timeOut = 10, $dnsCacheTimeOut = 600, $followLocation = true, $maxRedirs = 5)
+    ->setDefaultSpeedOptions()
 
     ->setReturnHeader() // If you want to get the header with getHeader()
     ->setCookie(string $cookie)
@@ -108,9 +114,9 @@ $r->hasError|getError|getInfo(); // Equivalent to curl function curl_errno|curl_
 
 ```
 
-##Licence
+## License
 
-Licence : WTFPL (see LICENCE file)
+MIT (see the `LICENSE` file for details)
 
 ##Contributors
 
