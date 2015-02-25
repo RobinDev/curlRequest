@@ -332,12 +332,14 @@ class CurlRequest
     /**
      * Return header's data return by the request
      *
-     * @return array containing header's data
+     * @param bool $arrayFormatted True to get an array, false to get a string
+     *
+     * @return array|string containing header's data
      */
-    public function getHeader()
+    public function getHeader($arrayFormatted = true)
     {
         if (isset($this->header)) {
-            return self::http_parse_headers($this->header);
+            return $arrayFormatted === true ? self::http_parse_headers($this->header) : $this->header;
         }
     }
 

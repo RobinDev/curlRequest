@@ -109,7 +109,7 @@ $r
 
 string $r->execute();   // Return contents from the url
 
-array  $r->getHeader(); // Return Response Header
+array  $r->getHeader($arrayFormatted = true); // Return Response Header in an array (or in a string if $arrayFormatted is set to false)
 
 string $r->getCookies();
 
