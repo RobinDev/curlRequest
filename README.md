@@ -17,7 +17,7 @@ PHP POO cURL wrapper :
     * [Packagist](https://packagist.org/packages/ropendev/curl)
 * [Usage](#usage)
 * [Documentation](#documentation)
-* [Lisense](#lisense)
+* [License](#license)
 * [Contributors](#contributors)
 
 ##Introduction
