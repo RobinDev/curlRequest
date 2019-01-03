@@ -6,22 +6,20 @@ PHP POO cURL wrapper :
 * Intuitive and documented
 * Light (~8 ko)
 
-##Introduction
-
 Simple cURL class wich transform procedural default cURL options in object. This class is giving some shortcuts like getCookie, setMobileUserAgent, setReferrer... for a more intuitive usage. And you can set cURL's options the old way with CurlRequest::setOpt($option, $value).
 
 All the functions are documented in the class file.
 
-##Installation
+## Installation
 
 Via [Packagist](https://packagist.org/packages/ropendev/curl) :
 ```bash
 composer require ropendev/curl
 ```
 
-##Usage
+## Usage
 
-###Single request
+### Single request
 ```php
 <?php
 use \rOpenDev\curl\CurlRequest;
@@ -34,7 +32,7 @@ echo $output;
 ```
 The above example will output the contet from example.org.
 
-###Single request with proxy, post and cookie
+### Single request with proxy, post and cookie
 ```php
 <?php
 use \rOpenDev\curl\CurlRequest;
@@ -45,7 +43,7 @@ $request->setDefaultGetOptions()->setReturnHeader()->setDestkopUserAgent()->setE
 $r2 = new CurlRequest('http://www.bing.com/search?q=curl+request+php');
 echo $r2->setDefaultGetOptions()->setReturnHeader()->setDestkopUserAgent()->setEncodingGzip()->setCookie($request->getCookie())->setProxy('domain:port:user:password')->execute();
 ```
-##Documentation
+## Documentation
 
 Are listed every public method.
 
@@ -95,7 +93,7 @@ $r->hasError|getError|getInfo(); // Equivalent to curl function curl_errno|curl_
 
 MIT (see the `LICENSE` file for details)
 
-##Contributors
+## Contributors
 
 Before to submit a pull request, check test is still passing (`phpunit`).
 
