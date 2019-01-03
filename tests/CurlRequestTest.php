@@ -2,12 +2,16 @@
 namespace rOpenDev\curl\Test;
 
 use rOpenDev\curl\CurlRequest;
+use PHPUnit\Framework\TestCase;
 
-class CurlRequestTest extends \PHPUnit_Framework_TestCase
+final class CurlRequestTest extends TestCase
 {
-
-    public function testConstructor()
+    public function testEffectiveUrl()
     {
-        $this->request = new CurlRequest('http://www.google.fr/');
+        $request = new CurlRequest('http://www.piedweb.com/');
+        $request->setDefaultGetOptions()->setReturnHeader()->setDestkopUserAgent()->setEncodingGzip();
+        $output = $request->execute();
+
+        $this->assertSame('https://piedweb.com/', $request->getEffectiveUrl());
     }
 }

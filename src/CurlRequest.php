@@ -205,7 +205,7 @@ class CurlRequest
      */
     public function setDestkopUserAgent()
     {
-        $this->setUserAgent('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:28.0) Gecko/20100101 Firefox/28.0');
+        $this->setUserAgent('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0');
 
         return $this;
     }
@@ -217,7 +217,7 @@ class CurlRequest
      */
     public function setMobileUserAgent()
     {
-        $this->setUserAgent('Mozilla/5.0 (Linux; U; Android 2.2.1; en-ca; LG-P505R Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1');
+        $this->setUserAgent('Mozilla/5.0 (Linux; Android 7.0; SM-G892A Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Mobile Safari/537.36');
 
         return $this;
     }
@@ -341,6 +341,16 @@ class CurlRequest
         if (isset($this->header)) {
             return $arrayFormatted === true ? self::http_parse_headers($this->header) : $this->header;
         }
+    }
+
+    /**
+     * Return current effective url
+     *
+     * @return string
+     */
+    function getEffectiveUrl()
+    {
+        return curl_getinfo(self::$ch, CURLINFO_EFFECTIVE_URL);
     }
 
     /**

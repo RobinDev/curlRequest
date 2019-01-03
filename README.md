@@ -1,24 +1,10 @@
 # Make it easy to request a URL (or few) with PHP cURL
 
-[![Quality Score](https://img.shields.io/scrutinizer/g/RobinDev/curlRequest.svg)](https://scrutinizer-ci.com/g/RobinDev/curlRequest)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/388f6562-32ae-454d-97ce-4d1bed306ee3/mini.png)](https://insight.sensiolabs.com/projects/388f6562-32ae-454d-97ce-4d1bed306ee3)
-[![Build Status](https://travis-ci.org/RobinDev/curlRequest.svg)](https://travis-ci.org/RobinDev/curlRequest)
-[![Total Downloads](https://img.shields.io/packagist/dt/ropendev/curl.svg)](https://packagist.org/packages/ropendev/curl)
-
 PHP POO cURL wrapper :
-* PSR compliant (2 Coding Style, 4 Autoloading),
+* PSR compliant,
 * Easy install with composer,
 * Intuitive and documented
 * Light (~8 ko)
-
-##Table of contents
-* [Introduction](#introduction)
-* [Installation](#installation)
-    * [Packagist](https://packagist.org/packages/ropendev/curl)
-* [Usage](#usage)
-* [Documentation](#documentation)
-* [License](#license)
-* [Contributors](#contributors)
 
 ##Introduction
 
@@ -28,23 +14,9 @@ All the functions are documented in the class file.
 
 ##Installation
 
-[Composer](http://getcomposer.org) is recommended for installation.
-
-In one command line :
+Via [Packagist](https://packagist.org/packages/ropendev/curl) :
 ```bash
 composer require ropendev/curl
-```
-
-Or via editting your `composer.json`
-```json
-{
-    "require": {
-        "ropendev/curl": "dev-master"
-    }
-}
-```
-```bash
-composer update
 ```
 
 ##Usage
@@ -113,6 +85,8 @@ array  $r->getHeader($arrayFormatted = true); // Return Response Header in an ar
 
 string $r->getCookies();
 
+string $r->getEffectiveUrl();
+
 $r->hasError|getError|getInfo(); // Equivalent to curl function curl_errno|curl_error|curl_getinfo();
 
 ```
@@ -123,5 +97,15 @@ MIT (see the `LICENSE` file for details)
 
 ##Contributors
 
+Before to submit a pull request, check test is still passing (`phpunit`).
+
 * Original author : [Robin (SEO Consultant in Marseille)](http://www.robin-d.fr/).
+* [Pied Web](https://piedweb.com)
 * ...
+
+
+[![Latest Version](https://img.shields.io/github/tag/RobinDev/CurlRequest.svg?style=flat&label=release)](https://github.com/RobinDev/CurlRequest/tags)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/RobinDev/CurlRequest/LICENSE.md)
+[![Build Status](https://img.shields.io/travis/RobinDev/CurlRequest/master.svg?style=flat)](https://travis-ci.org/RobinDev/CurlRequest)
+[![Quality Score](https://img.shields.io/scrutinizer/g/RobinDev/CurlRequest.svg?style=flat)](https://scrutinizer-ci.com/g/RobinDev/CurlRequest)
+[![Total Downloads](https://img.shields.io/packagist/dt/ropendev/curl.svg?style=flat)](https://packagist.org/packages/ropendev/curl)
