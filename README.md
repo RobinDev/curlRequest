@@ -104,8 +104,8 @@ Before to submit a pull request, check test is still passing (`phpunit`).
 * ...
 
 
-[![Latest Version](https://img.shields.io/github/tag/RobinDev/CurlRequest.svg?style=flat&label=release)](https://github.com/RobinDev/CurlRequest/tags)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/RobinDev/CurlRequest/LICENSE.md)
-[![Build Status](https://img.shields.io/travis/RobinDev/CurlRequest/master.svg?style=flat)](https://travis-ci.org/RobinDev/CurlRequest)
-[![Quality Score](https://img.shields.io/scrutinizer/g/RobinDev/CurlRequest.svg?style=flat)](https://scrutinizer-ci.com/g/RobinDev/CurlRequest)
+[![Latest Version](https://img.shields.io/github/tag/RobinDev/curlRequest.svg?style=flat&label=release)](https://github.com/RobinDev/curlRequest/tags)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/RobinDev/curlRequest/LICENSE.md)
+[![Build Status](https://img.shields.io/travis/RobinDev/curlRequest/master.svg?style=flat)](https://travis-ci.org/RobinDev/curlRequest)
+[![Quality Score](https://img.shields.io/scrutinizer/g/RobinDev/curlRequest.svg?style=flat)](https://scrutinizer-ci.com/g/RobinDev/curlRequest)
 [![Total Downloads](https://img.shields.io/packagist/dt/ropendev/curl.svg?style=flat)](https://packagist.org/packages/ropendev/curl)
