@@ -1,3 +1,7 @@
+/!\ This class is not maintained anymore. Use [PiedWeb/Curl](https://github.com/PiedWeb/Curl)
+---------------------------------------------------------------------------------------------
+
+
 # Make it easy to request a URL (or few) with PHP cURL
 
 PHP POO cURL wrapper :
